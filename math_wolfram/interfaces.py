@@ -16,16 +16,16 @@ def txt_to_latex(plain_text):
 # get latex text in "latex text" format
 #
 #-----------------------
-def latex_to_image(latex_text):
+def latex_to_image(latex_text, pictures_path):
     hashTex = str(hash(latex_text))
     filePath1 = hashTex[:2]
-    if not os.path.exists('latex_pictures/' + filePath1):
-        os.mkdir('latex_pictures/' + filePath1)
+    if not os.path.exists(pictures_path + filePath1):
+        os.mkdir(pictures_path + filePath1)
     filePath2 = hashTex[2:4]
-    if not os.path.exists('latex_pictures/' + filePath1 + '/' + filePath2):
-        os.mkdir('latex_pictures/' + filePath1 + '/' + filePath2)
+    if not os.path.exists(pictures_path + filePath1 + '/' + filePath2):
+        os.mkdir(pictures_path + filePath1 + '/' + filePath2)
     fileName = hashTex[4:]
-    fullPath = 'latex_pictures/' + filePath1 + '/' + filePath2 + '/' + fileName +'.png'
+    fullPath = pictures_path + filePath1 + '/' + filePath2 + '/' + fileName +'.png'
     if os.path.exists(fullPath):
         return fullPath
     call(['./tex2png/tex2png', latex_text, fullPath])
