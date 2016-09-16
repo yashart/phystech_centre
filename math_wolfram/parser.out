@@ -1,0 +1,453 @@
+Created by PLY version 3.7 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> expression SUBTRACTION term
+Rule 2     expression -> expression ADDITION term
+Rule 3     expression -> term
+Rule 4     term -> term DIVISION pow
+Rule 5     term -> term MULTIPLICATION pow
+Rule 6     term -> pow
+Rule 7     pow -> pow POWER operator
+Rule 8     pow -> operator
+Rule 9     operator -> SUBTRACTION num
+Rule 10    operator -> SQRT num
+Rule 11    operator -> num
+Rule 12    num -> NUMBER
+Rule 13    num -> VARIABLE
+Rule 14    num -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+ADDITION             : 2
+DIVISION             : 4
+LPAREN               : 14
+MULTIPLICATION       : 5
+NUMBER               : 12
+POWER                : 7
+RPAREN               : 14
+SQRT                 : 10
+SUBTRACTION          : 1 9
+VARIABLE             : 13
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 14 0
+num                  : 9 10 11
+operator             : 7 8
+pow                  : 4 5 6 7
+term                 : 1 2 3 4 5
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . expression SUBTRACTION term
+    (2) expression -> . expression ADDITION term
+    (3) expression -> . term
+    (4) term -> . term DIVISION pow
+    (5) term -> . term MULTIPLICATION pow
+    (6) term -> . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 3
+    term                           shift and go to state 1
+    num                            shift and go to state 7
+    expression                     shift and go to state 10
+
+state 1
+
+    (3) expression -> term .
+    (4) term -> term . DIVISION pow
+    (5) term -> term . MULTIPLICATION pow
+
+    RPAREN          reduce using rule 3 (expression -> term .)
+    SUBTRACTION     reduce using rule 3 (expression -> term .)
+    ADDITION        reduce using rule 3 (expression -> term .)
+    $end            reduce using rule 3 (expression -> term .)
+    DIVISION        shift and go to state 12
+    MULTIPLICATION  shift and go to state 11
+
+
+state 2
+
+    (13) num -> VARIABLE .
+
+    POWER           reduce using rule 13 (num -> VARIABLE .)
+    DIVISION        reduce using rule 13 (num -> VARIABLE .)
+    MULTIPLICATION  reduce using rule 13 (num -> VARIABLE .)
+    SUBTRACTION     reduce using rule 13 (num -> VARIABLE .)
+    ADDITION        reduce using rule 13 (num -> VARIABLE .)
+    $end            reduce using rule 13 (num -> VARIABLE .)
+    RPAREN          reduce using rule 13 (num -> VARIABLE .)
+
+
+state 3
+
+    (6) term -> pow .
+    (7) pow -> pow . POWER operator
+
+    DIVISION        reduce using rule 6 (term -> pow .)
+    MULTIPLICATION  reduce using rule 6 (term -> pow .)
+    SUBTRACTION     reduce using rule 6 (term -> pow .)
+    ADDITION        reduce using rule 6 (term -> pow .)
+    $end            reduce using rule 6 (term -> pow .)
+    RPAREN          reduce using rule 6 (term -> pow .)
+    POWER           shift and go to state 13
+
+
+state 4
+
+    (12) num -> NUMBER .
+
+    POWER           reduce using rule 12 (num -> NUMBER .)
+    DIVISION        reduce using rule 12 (num -> NUMBER .)
+    MULTIPLICATION  reduce using rule 12 (num -> NUMBER .)
+    SUBTRACTION     reduce using rule 12 (num -> NUMBER .)
+    ADDITION        reduce using rule 12 (num -> NUMBER .)
+    $end            reduce using rule 12 (num -> NUMBER .)
+    RPAREN          reduce using rule 12 (num -> NUMBER .)
+
+
+state 5
+
+    (10) operator -> SQRT . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    num                            shift and go to state 14
+
+state 6
+
+    (8) pow -> operator .
+
+    POWER           reduce using rule 8 (pow -> operator .)
+    DIVISION        reduce using rule 8 (pow -> operator .)
+    MULTIPLICATION  reduce using rule 8 (pow -> operator .)
+    SUBTRACTION     reduce using rule 8 (pow -> operator .)
+    ADDITION        reduce using rule 8 (pow -> operator .)
+    $end            reduce using rule 8 (pow -> operator .)
+    RPAREN          reduce using rule 8 (pow -> operator .)
+
+
+state 7
+
+    (11) operator -> num .
+
+    POWER           reduce using rule 11 (operator -> num .)
+    DIVISION        reduce using rule 11 (operator -> num .)
+    MULTIPLICATION  reduce using rule 11 (operator -> num .)
+    SUBTRACTION     reduce using rule 11 (operator -> num .)
+    ADDITION        reduce using rule 11 (operator -> num .)
+    $end            reduce using rule 11 (operator -> num .)
+    RPAREN          reduce using rule 11 (operator -> num .)
+
+
+state 8
+
+    (9) operator -> SUBTRACTION . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    num                            shift and go to state 15
+
+state 9
+
+    (14) num -> LPAREN . expression RPAREN
+    (1) expression -> . expression SUBTRACTION term
+    (2) expression -> . expression ADDITION term
+    (3) expression -> . term
+    (4) term -> . term DIVISION pow
+    (5) term -> . term MULTIPLICATION pow
+    (6) term -> . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 3
+    term                           shift and go to state 1
+    num                            shift and go to state 7
+    expression                     shift and go to state 16
+
+state 10
+
+    (0) S' -> expression .
+    (1) expression -> expression . SUBTRACTION term
+    (2) expression -> expression . ADDITION term
+
+    SUBTRACTION     shift and go to state 18
+    ADDITION        shift and go to state 17
+
+
+state 11
+
+    (5) term -> term MULTIPLICATION . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 19
+    num                            shift and go to state 7
+
+state 12
+
+    (4) term -> term DIVISION . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 20
+    num                            shift and go to state 7
+
+state 13
+
+    (7) pow -> pow POWER . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 21
+    num                            shift and go to state 7
+
+state 14
+
+    (10) operator -> SQRT num .
+
+    POWER           reduce using rule 10 (operator -> SQRT num .)
+    DIVISION        reduce using rule 10 (operator -> SQRT num .)
+    MULTIPLICATION  reduce using rule 10 (operator -> SQRT num .)
+    SUBTRACTION     reduce using rule 10 (operator -> SQRT num .)
+    ADDITION        reduce using rule 10 (operator -> SQRT num .)
+    $end            reduce using rule 10 (operator -> SQRT num .)
+    RPAREN          reduce using rule 10 (operator -> SQRT num .)
+
+
+state 15
+
+    (9) operator -> SUBTRACTION num .
+
+    POWER           reduce using rule 9 (operator -> SUBTRACTION num .)
+    DIVISION        reduce using rule 9 (operator -> SUBTRACTION num .)
+    MULTIPLICATION  reduce using rule 9 (operator -> SUBTRACTION num .)
+    SUBTRACTION     reduce using rule 9 (operator -> SUBTRACTION num .)
+    ADDITION        reduce using rule 9 (operator -> SUBTRACTION num .)
+    $end            reduce using rule 9 (operator -> SUBTRACTION num .)
+    RPAREN          reduce using rule 9 (operator -> SUBTRACTION num .)
+
+
+state 16
+
+    (14) num -> LPAREN expression . RPAREN
+    (1) expression -> expression . SUBTRACTION term
+    (2) expression -> expression . ADDITION term
+
+    RPAREN          shift and go to state 22
+    SUBTRACTION     shift and go to state 18
+    ADDITION        shift and go to state 17
+
+
+state 17
+
+    (2) expression -> expression ADDITION . term
+    (4) term -> . term DIVISION pow
+    (5) term -> . term MULTIPLICATION pow
+    (6) term -> . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 3
+    term                           shift and go to state 23
+    num                            shift and go to state 7
+
+state 18
+
+    (1) expression -> expression SUBTRACTION . term
+    (4) term -> . term DIVISION pow
+    (5) term -> . term MULTIPLICATION pow
+    (6) term -> . pow
+    (7) pow -> . pow POWER operator
+    (8) pow -> . operator
+    (9) operator -> . SUBTRACTION num
+    (10) operator -> . SQRT num
+    (11) operator -> . num
+    (12) num -> . NUMBER
+    (13) num -> . VARIABLE
+    (14) num -> . LPAREN expression RPAREN
+
+    SUBTRACTION     shift and go to state 8
+    SQRT            shift and go to state 5
+    NUMBER          shift and go to state 4
+    VARIABLE        shift and go to state 2
+    LPAREN          shift and go to state 9
+
+    operator                       shift and go to state 6
+    pow                            shift and go to state 3
+    term                           shift and go to state 24
+    num                            shift and go to state 7
+
+state 19
+
+    (5) term -> term MULTIPLICATION pow .
+    (7) pow -> pow . POWER operator
+
+    DIVISION        reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    MULTIPLICATION  reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    SUBTRACTION     reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    ADDITION        reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    $end            reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    RPAREN          reduce using rule 5 (term -> term MULTIPLICATION pow .)
+    POWER           shift and go to state 13
+
+
+state 20
+
+    (4) term -> term DIVISION pow .
+    (7) pow -> pow . POWER operator
+
+    DIVISION        reduce using rule 4 (term -> term DIVISION pow .)
+    MULTIPLICATION  reduce using rule 4 (term -> term DIVISION pow .)
+    SUBTRACTION     reduce using rule 4 (term -> term DIVISION pow .)
+    ADDITION        reduce using rule 4 (term -> term DIVISION pow .)
+    $end            reduce using rule 4 (term -> term DIVISION pow .)
+    RPAREN          reduce using rule 4 (term -> term DIVISION pow .)
+    POWER           shift and go to state 13
+
+
+state 21
+
+    (7) pow -> pow POWER operator .
+
+    POWER           reduce using rule 7 (pow -> pow POWER operator .)
+    DIVISION        reduce using rule 7 (pow -> pow POWER operator .)
+    MULTIPLICATION  reduce using rule 7 (pow -> pow POWER operator .)
+    SUBTRACTION     reduce using rule 7 (pow -> pow POWER operator .)
+    ADDITION        reduce using rule 7 (pow -> pow POWER operator .)
+    $end            reduce using rule 7 (pow -> pow POWER operator .)
+    RPAREN          reduce using rule 7 (pow -> pow POWER operator .)
+
+
+state 22
+
+    (14) num -> LPAREN expression RPAREN .
+
+    POWER           reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    DIVISION        reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    MULTIPLICATION  reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    SUBTRACTION     reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    ADDITION        reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    $end            reduce using rule 14 (num -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 14 (num -> LPAREN expression RPAREN .)
+
+
+state 23
+
+    (2) expression -> expression ADDITION term .
+    (4) term -> term . DIVISION pow
+    (5) term -> term . MULTIPLICATION pow
+
+    RPAREN          reduce using rule 2 (expression -> expression ADDITION term .)
+    SUBTRACTION     reduce using rule 2 (expression -> expression ADDITION term .)
+    ADDITION        reduce using rule 2 (expression -> expression ADDITION term .)
+    $end            reduce using rule 2 (expression -> expression ADDITION term .)
+    DIVISION        shift and go to state 12
+    MULTIPLICATION  shift and go to state 11
+
+
+state 24
+
+    (1) expression -> expression SUBTRACTION term .
+    (4) term -> term . DIVISION pow
+    (5) term -> term . MULTIPLICATION pow
+
+    RPAREN          reduce using rule 1 (expression -> expression SUBTRACTION term .)
+    SUBTRACTION     reduce using rule 1 (expression -> expression SUBTRACTION term .)
+    ADDITION        reduce using rule 1 (expression -> expression SUBTRACTION term .)
+    $end            reduce using rule 1 (expression -> expression SUBTRACTION term .)
+    DIVISION        shift and go to state 12
+    MULTIPLICATION  shift and go to state 11
+
