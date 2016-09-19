@@ -22,4 +22,4 @@ def latex_api_text():
                         "img_path": 'None'})
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5020)
+    app.run(host='0.0.0.0', port=5022)

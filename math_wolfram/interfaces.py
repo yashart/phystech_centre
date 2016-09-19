@@ -3,6 +3,8 @@ import tex_converter
 import optimize
 from subprocess import call
 import os
+import calc_polish_list
+import node2polish_list
 
 
 def txt_to_latex(plain_text):
@@ -31,6 +33,23 @@ def latex_to_image(latex_text, pictures_path):
     call(['./tex2png/tex2png', latex_text, fullPath])
 
     return fullPath
+
+#---------------------------
+#check equation by points
+#right_list - list of dict, which contain vars and res
+#---------------------------
+def check_equation(plain_text, right_list):
+    node = parser.build_tree(plain_text)
+    node = optimize.optimize_bracket(node)
+    polishList = node2polish_list.node2list(node)
+    for point in right_list:
+        polishNumsList = calc_polish_list.vars_to_nums(polishList, point)
+        result = calc_polish_list.calc_polish_list(polishNumsList)
+        if(float(point['res']) != result):
+            return False
+
+    return True
+
 
 if __name__ == "__main__":
     latex_to_image(r'\alpha > \beta')
