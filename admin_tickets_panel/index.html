@@ -19,7 +19,7 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Физкек Центр</a>
-     +   </div>
+        </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="#">Админ панель</a></li>
@@ -37,6 +37,7 @@
       <table class="table table-bordered">
         <thead class="thead-default">
           <tr>
+            <td>id Тикета</td>
             <td>
               <div class="btn-group" id="ticket_time">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,47 +52,47 @@
                 </ul>
               </div>
             </td>
-            <td>Заголовок</td>
-            <td>Текст</td>
+            <td>Информация о пользователе</td>
+            <td>Браузер</td>
+            <td>Тикет</td>
+            <td>URL сайта</td>
             <td>
-              <div class="btn-group" id="ticket_type">
+              <div class="btn-group" id="id_type">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Тип тикета <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><input type="checkbox" name="ticket_type" value="event" checked>Евент</a></li>
-                  <li><a href="#"><input type="checkbox" name="ticket_type" value="zftsh" checked>Методист ЗФТШ</a></li>
-                  <li><a href="#"><input type="checkbox" name="ticket_type" value="support" checked>Техподдержка</a></li>
+                  <li><a href="#"><input type="checkbox" name="id_type" value="event" checked>Евент</a></li>
+                  <li><a href="#"><input type="checkbox" name="id_type" value="zftsh" checked>Методист ЗФТШ</a></li>
+                  <li><a href="#"><input type="checkbox" name="id_type" value="support" checked>Техподдержка</a></li>
                 </ul>
               </div>
             </td>
-            <td>
-              <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Подразделение ФЦ <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#"><input type="checkbox" name="domain" value="abitu" checked>Abitu.net</a></li>
-                  <li><a href="#"><input type="checkbox" name="domain" value="zftsh" checked>ЗФТШ</a></li>
-                  <li><a href="#"><input type="checkbox" name="domain" value="summer school" checked>Летняя школа</a></li>
-                </ul>
-              </div>
-            </td>
-            <td>Пользователь</td>
-            <td>Ещё</td>
+            <td>Приоритет</td>
+            <td>Статус</td>
+            <td>Диалог Абиту</td>
+            <td>id Админа</td>
+            <td>Редактировать</td>
           </tr>
         </thead>
         <tbody id="data_table">
           <tr>
+            <td>0</td>
             <td>15.10.2016 18:30</td>
-            <td>Нет методички зфтш</td>
-            <td>В личном кабинете зфтш нет методички 8-ого класса по физике</td>
-            <td>Методист ЗФТШ</td>
+            <td>id- 18<br>Иванов Айсиен<br>1@mail.ru<br>88005553535</td>
+            <td>Opera Mini</td>
+            <td>
+              <strong align="center">Нет методички</strong>
+              <br>В личном кабинете зфтш нет методички 8-ого класса по физике</td>
+            <td>abitu.net</td>
             <td>ЗФТШ</td>
-            <td>test_user1</td>
+            <td>высокий</td>
+            <td>open</td>
+            <td>12345</td>
+            <td>111000</td>
             <td>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Смотреть ещё
+                Редактировать
               </button>
             </td>
           </tr>
@@ -110,41 +111,58 @@
           <table class="table">
             <tbody>
               <tr>
+                <td>id тикета</td>
+                <td>1241</td>
+              </tr>
+              <tr>
+                <td>Время</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>id пользователя</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Имя</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td><input type="text" class="form-control" id="edit_email" value="1"></td>
+              </tr>
+              <tr>
+                <td>Телефон</td>
+                <td><input type="text" class="form-control" id="edit_phone" value="1"></td>
+              </tr>
+              <tr>
+                <td>Браузер</td>
+                <td>12414</td>
+              </tr>
+              <tr>
                 <td>Заголовок</td>
-                <td>Нет методички зфтш</td>
+                <td>1241245</td>
               </tr>
               <tr>
-                <td>Время отправки</td>
-                <td>15.10.2016 18:30</td>
+                <td>Текст</td>
+                <td>12314</td>
               </tr>
               <tr>
-                <td>Полный текст</td>
-                <td>В личном кабинете зфтш нет методички 8-ого класса по физике</td>
+                <td>Url</td>
+                <td>12421</td>
               </tr>
               <tr>
                 <td>Тип тикета</td>
                 <td>
                   <div class="input-group">
-                    <input type="radio" name="ticket_type" checked>Методист ЗФТШ<br>
-                    <input type="radio" name="ticket_type">Евент<br>
-                    <input type="radio" name="ticket_type">Техподдержка<br>
+                    <input type="radio" name="id_type" checked>Методист ЗФТШ<br>
+                    <input type="radio" name="id_type">Евент<br>
+                    <input type="radio" name="id_type">Техподдержка<br>
                   </div>
                 </td>
               </tr>
               <tr>
-                <td>Подразделение ФЦ</td>
-                <td>
-                  <input type="radio" name="domain">Abitu.net<br>
-                  <input type="radio" name="domain" checked>ЗФТШ<br>
-                  <input type="radio" name="domain">Летняя школа<br>
-                </td>
-              </tr>
-              <tr>
-                <td>Пользователь</td>
-                <td>
-                  test_user1<br>
-                  <button type="button" class="btn btn-default">Перейти к диалогу</button>
-                </td>
+                <td>Приоритет</td>
+                <td><input type="text" class="form-control" id="edit_id_ticket" value="1"></td>
               </tr>
               <tr>
                 <td>Статус</td>
@@ -152,6 +170,14 @@
                   Тикет открыт<br>
                   <button type="button" class="btn btn-primary">Закрыть тикет</button>
                 </td>
+              </tr>
+              <tr>
+                <td>Диалог абиту</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Админ</td>
+                <td><input type="text" class="form-control" id="edit_admin_id" value="1"></td>
               </tr>
             </tbody>
           </table>
