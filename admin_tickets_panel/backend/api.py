@@ -16,5 +16,11 @@ def get_info():
         return callback + '(' + json.dumps(response) + ')'
 
 
+@app.route('/change_ticket', methods=['GET'])
+def change_ticket():
+    if request.method == 'GET':
+        pass #TO-DO
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5022)

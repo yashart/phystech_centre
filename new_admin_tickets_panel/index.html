@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datatables.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Физкек Центр</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Админ панель</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Логин</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid" id="find-div">
+      <div class="page-header">
+        <h1>Админка для обработки тикетов</h1>
+      </div>
+      <table id="main_table" class="display table table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>id Тикета</th>
+            <th>Время</th>
+            <th>Информация о пользователе</th>
+            <th>Браузер</th>
+            <th>Тикет</th>
+            <th>url сайта</th>
+            <th>Тип тикета</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Диалог Абиту</th>
+            <th>id Админа</th>
+            <th>Редактировать</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>id Тикета</th>
+            <th>Время</th>
+            <th>Информация о пользователе</th>
+            <th>Браузер</th>
+            <th>Тикет</th>
+            <th>url сайта</th>
+            <th>Тип тикета</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Диалог Абиту</th>
+            <th>id Админа</th>
+            <th>Редактировать</th>
+          </tr>
+        </tfoot>
+        <tbody id="main_table_body">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal fade" id="popupEdit" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Расширенная информация/редактировать</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>id тикета</td>
+                  <td id="modal_ticket_id"></td>
+                </tr>
+                <tr>
+                  <td>Время</td>
+                  <td id="modal_time"></td>
+                </tr>
+                <tr>
+                  <td>Информация о пользователе</td>
+                  <td id="modal_user_info"></td>
+                </tr>
+                <tr>
+                  <td>Браузер</td>
+                  <td id="modal_browser"></td>
+                </tr>
+                <tr>
+                  <td>Тикет</td>
+                  <td id="modal_ticket_info"></td>
+                </tr>
+                <tr>
+                  <td>Url сайта</td>
+                  <td id="modal_url"></td>
+                </tr>
+                <tr>
+                  <td>Тип тикета</td>
+                  <td>
+                    <input class="form-control" id="modal_ticket_type">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Приоритет</td>
+                  <td><input type="text" class="form-control" id="modal_ticket_priority"></td>
+                </tr>
+                <tr>
+                  <td>Статус</td>
+                  <td><input type="text" class="form-control" id="modal_ticket_status"></td>
+                </tr>
+                <tr>
+                  <td>Диалог абиту</td>
+                  <td><input type="text" class="form-control" id="modal_conversation_id"></td>
+                </tr>
+                <tr>
+                  <td>Админ</td>
+                  <td><input type="text" class="form-control" id="modal_admin_id"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" id="modal_button">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/tableLogic.js"></script>
+  </body>
+</html>

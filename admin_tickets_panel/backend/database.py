@@ -17,7 +17,27 @@ def get_data(time, title, description, id_type, status, userid, order):
                  ''', param_tup):
         response.append(row)
     conn.close()
+
     return response
+
+def change_ticket(id, email, phone, id_type, status, admin_id):
+    conn = sqlite3.connect('tickets.sqlite')
+    c = conn.cursor()
+
+    param_tup = ()
+    param_tup = param_tup + email + phone + id_type + status + admin_id + id
+
+    c.execute('''UPDATE tickets SET
+    email = ?,
+    phone = ?,
+    idtype = ?,
+    status = ?,
+    admin_id = ?
+    WHERE id = ?
+    ''', param_tup)
+
+    conn.close()
+    return
 
 def make_json_from_data(database_answer):
     responseList = []
@@ -43,4 +63,4 @@ def make_json_from_data(database_answer):
     return responseList
 
 if __name__ == "__main__":
-    get_data(0,0,0,('zftsh',), ('abitu','zftsh',), ('solved',), 0, ('time',))
+    get_data(0,0,0,('zftsh',), ('abitu','zftsh',), ('solved',), 0, )

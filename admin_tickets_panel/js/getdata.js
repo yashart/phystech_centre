@@ -1,6 +1,7 @@
-n$(document).ready(function(){
+$(document).ready(function(){
     clear_table();
     get_tickets();
+    $('#main_table').DataTable();
 });
 
 $('input').change(function() {

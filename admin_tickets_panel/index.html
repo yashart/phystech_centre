@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,7 +101,7 @@
       </table>
     </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -112,72 +113,49 @@
             <tbody>
               <tr>
                 <td>id тикета</td>
-                <td>1241</td>
+                <td id="modal_ticket_id"></td>
               </tr>
               <tr>
                 <td>Время</td>
-                <td>1</td>
+                <td id="modal_time">1</td>
               </tr>
               <tr>
-                <td>id пользователя</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>Имя</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>email</td>
-                <td><input type="text" class="form-control" id="edit_email" value="1"></td>
-              </tr>
-              <tr>
-                <td>Телефон</td>
-                <td><input type="text" class="form-control" id="edit_phone" value="1"></td>
+                <td>Информация о пользователе</td>
+                <td><textarea class="form-control" rows="5" id="modal_user_info"></textarea></td>
               </tr>
               <tr>
                 <td>Браузер</td>
-                <td>12414</td>
+                <td id="modal_browser"></td>
               </tr>
               <tr>
-                <td>Заголовок</td>
-                <td>1241245</td>
+                <td>Тикет</td>
+                <td id="modal_ticket_info"></td>
               </tr>
               <tr>
-                <td>Текст</td>
-                <td>12314</td>
-              </tr>
-              <tr>
-                <td>Url</td>
-                <td>12421</td>
+                <td>Url сайта</td>
+                <td id="modal_url"></td>
               </tr>
               <tr>
                 <td>Тип тикета</td>
                 <td>
-                  <div class="input-group">
-                    <input type="radio" name="id_type" checked>Методист ЗФТШ<br>
-                    <input type="radio" name="id_type">Евент<br>
-                    <input type="radio" name="id_type">Техподдержка<br>
-                  </div>
+                  <input class="form-control" id="modal_ticket_type">
                 </td>
               </tr>
               <tr>
                 <td>Приоритет</td>
-                <td><input type="text" class="form-control" id="edit_id_ticket" value="1"></td>
+                <td><input type="text" class="form-control" id="modal_ticket_priority"></td>
               </tr>
               <tr>
                 <td>Статус</td>
-                <td>
-                  Тикет открыт<br>
-                  <button type="button" class="btn btn-primary">Закрыть тикет</button>
-                </td>
+                <td><input type="text" class="form-control" id="modal_ticket_status"></td>
               </tr>
               <tr>
                 <td>Диалог абиту</td>
-                <td>1</td>
+                <td><input type="text" class="form-control" id="modal_conversation_id"></td>
               </tr>
               <tr>
                 <td>Админ</td>
-                <td><input type="text" class="form-control" id="edit_admin_id" value="1"></td>
+                <td><input type="text" class="form-control" id="modal_admin_id" value="1"></td>
               </tr>
             </tbody>
           </table>
@@ -193,6 +171,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
     <script src="js/getdata.js"></script>
   </body>
 </html>
