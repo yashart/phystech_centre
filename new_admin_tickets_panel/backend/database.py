@@ -1,13 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sqlite3
+import MySQLdb as mdb
+import ConfigParser
+
+config = ConfigParser.RawConfigParser()
+config.read('db_config.cfg')
 
 def get_data():
-    conn = sqlite3.connect('tickets.sqlite')
+
+    conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
+                       user=config.get('admin_panel_db', 'user'),
+                       passwd=config.get('admin_panel_db', 'passwd'),
+                       db=config.get('admin_panel_db', 'db'),
+                       charset=config.get('admin_panel_db', 'charset'))
     c = conn.cursor()
 
     response = []
-    for row in c.execute('''SELECT * FROM tickets'''):
+    c.execute('''SELECT * FROM ''' + config.get('admin_panel_db', 'tickets_table'))
+    rows = c.fetchall()
+    for row in rows:
         response.append(row)
     conn.close()
 
@@ -31,8 +42,8 @@ def make_json_from_data(database_answer):
         rowDict['id_type'] = row[10]
         rowDict['priority'] = row[11]
         rowDict['status'] = row[12]
-        rowDict['conversation_id'] = row[13]
-        rowDict['admin_id'] = row[14]
+        rowDict['conversation_id'] = str(row[13])
+        rowDict['admin_id'] = str(row[14])
         rowDict['editButton'] = u'<button type="button" id="editButton' + str(row[0]) +\
                                 u'" class="btn btn-primary">' +\
                                u'Редактировать' + u'</button>'
@@ -43,19 +54,20 @@ def make_json_from_data(database_answer):
 def change_data(ticket_id, ticket_type, ticket_priority,
                 ticket_status, conversation_id, admin_id):
 
-    param_tup = ticket_type, ticket_priority, ticket_status, conversation_id, admin_id, int(ticket_id)
-    print "^^^^^^^^^^^^^^^^"
-    print param_tup
-    print "^^^^^^^^^^^^^^^^^^"
-    conn = sqlite3.connect('tickets.sqlite')
+    param_tup = (str(ticket_type), str(ticket_priority), str(ticket_status), str(conversation_id), str(admin_id), str(ticket_id), )
+    conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
+                       user=config.get('admin_panel_db', 'user'),
+                       passwd=config.get('admin_panel_db', 'passwd'),
+                       db=config.get('admin_panel_db', 'db'),
+                       charset=config.get('admin_panel_db', 'charset'))
     c = conn.cursor()
-    c.execute('''UPDATE tickets SET
-    id_type = ?,
-    priority = ?,
-    status = ?,
-    conversation_id = ?,
-    admin_id = ?
-    WHERE id_ticket = ?''', param_tup)
+    c.execute('UPDATE ' + config.get('admin_panel_db', 'tickets_table') + ''' SET
+    id_type = %s,
+    priority = %s,
+    status = %s,
+    conversation_id = %s,
+    admin_id = %s
+    WHERE id_ticket = %s''', param_tup)
     conn.commit()
 
     conn.close()
