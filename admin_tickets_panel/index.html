@@ -5,15 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datatables.min.css">
+
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -35,143 +30,115 @@
       <div class="page-header">
         <h1>Админка для обработки тикетов</h1>
       </div>
-      <table class="table table-bordered">
-        <thead class="thead-default">
+      <table id="main_table" class="display table table-bordered" cellspacing="0" width="100%">
+        <thead>
           <tr>
-            <td>id Тикета</td>
-            <td>
-              <div class="btn-group" id="ticket_time">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Время <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Последний день</a></li>
-                  <li><a href="#">Последняя неделя</a></li>
-                  <li><a href="#">Последний месяц</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">В.С.Ё</a></li>
-                </ul>
-              </div>
-            </td>
-            <td>Информация о пользователе</td>
-            <td>Браузер</td>
-            <td>Тикет</td>
-            <td>URL сайта</td>
-            <td>
-              <div class="btn-group" id="id_type">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Тип тикета <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#"><input type="checkbox" name="id_type" value="event" checked>Евент</a></li>
-                  <li><a href="#"><input type="checkbox" name="id_type" value="zftsh" checked>Методист ЗФТШ</a></li>
-                  <li><a href="#"><input type="checkbox" name="id_type" value="support" checked>Техподдержка</a></li>
-                </ul>
-              </div>
-            </td>
-            <td>Приоритет</td>
-            <td>Статус</td>
-            <td>Диалог Абиту</td>
-            <td>id Админа</td>
-            <td>Редактировать</td>
+            <th>id Тикета</th>
+            <th>Время</th>
+            <th>Информация о пользователе</th>
+            <th>Браузер</th>
+            <th>Тикет</th>
+            <th>url сайта</th>
+            <th>Тип тикета</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Диалог Абиту</th>
+            <th>id Админа</th>
+            <th>Редактировать</th>
           </tr>
         </thead>
-        <tbody id="data_table">
+        <tfoot>
           <tr>
-            <td>0</td>
-            <td>15.10.2016 18:30</td>
-            <td>id- 18<br>Иванов Айсиен<br>1@mail.ru<br>88005553535</td>
-            <td>Opera Mini</td>
-            <td>
-              <strong align="center">Нет методички</strong>
-              <br>В личном кабинете зфтш нет методички 8-ого класса по физике</td>
-            <td>abitu.net</td>
-            <td>ЗФТШ</td>
-            <td>высокий</td>
-            <td>open</td>
-            <td>12345</td>
-            <td>111000</td>
-            <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Редактировать
-              </button>
-            </td>
+            <th>id Тикета</th>
+            <th>Время</th>
+            <th>Информация о пользователе</th>
+            <th>Браузер</th>
+            <th>Тикет</th>
+            <th>url сайта</th>
+            <th>Тип тикета</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Диалог Абиту</th>
+            <th>id Админа</th>
+            <th>Редактировать</th>
           </tr>
+        </tfoot>
+        <tbody id="main_table_body">
         </tbody>
       </table>
     </div>
 
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Расширенная информация/редактировать</h4>
-        </div>
-        <div class="modal-body">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td>id тикета</td>
-                <td id="modal_ticket_id"></td>
-              </tr>
-              <tr>
-                <td>Время</td>
-                <td id="modal_time">1</td>
-              </tr>
-              <tr>
-                <td>Информация о пользователе</td>
-                <td><textarea class="form-control" rows="5" id="modal_user_info"></textarea></td>
-              </tr>
-              <tr>
-                <td>Браузер</td>
-                <td id="modal_browser"></td>
-              </tr>
-              <tr>
-                <td>Тикет</td>
-                <td id="modal_ticket_info"></td>
-              </tr>
-              <tr>
-                <td>Url сайта</td>
-                <td id="modal_url"></td>
-              </tr>
-              <tr>
-                <td>Тип тикета</td>
-                <td>
-                  <input class="form-control" id="modal_ticket_type">
-                </td>
-              </tr>
-              <tr>
-                <td>Приоритет</td>
-                <td><input type="text" class="form-control" id="modal_ticket_priority"></td>
-              </tr>
-              <tr>
-                <td>Статус</td>
-                <td><input type="text" class="form-control" id="modal_ticket_status"></td>
-              </tr>
-              <tr>
-                <td>Диалог абиту</td>
-                <td><input type="text" class="form-control" id="modal_conversation_id"></td>
-              </tr>
-              <tr>
-                <td>Админ</td>
-                <td><input type="text" class="form-control" id="modal_admin_id" value="1"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Сохранить</button>
+    <div class="modal fade" id="popupEdit" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Расширенная информация/редактировать</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>id тикета</td>
+                  <td id="modal_ticket_id"></td>
+                </tr>
+                <tr>
+                  <td>Время</td>
+                  <td id="modal_time"></td>
+                </tr>
+                <tr>
+                  <td>Информация о пользователе</td>
+                  <td id="modal_user_info"></td>
+                </tr>
+                <tr>
+                  <td>Браузер</td>
+                  <td id="modal_browser"></td>
+                </tr>
+                <tr>
+                  <td>Тикет</td>
+                  <td id="modal_ticket_info"></td>
+                </tr>
+                <tr>
+                  <td>Url сайта</td>
+                  <td id="modal_url"></td>
+                </tr>
+                <tr>
+                  <td>Тип тикета</td>
+                  <td>
+                    <input class="form-control" id="modal_ticket_type">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Приоритет</td>
+                  <td><input type="text" class="form-control" id="modal_ticket_priority"></td>
+                </tr>
+                <tr>
+                  <td>Статус</td>
+                  <td><input type="text" class="form-control" id="modal_ticket_status"></td>
+                </tr>
+                <tr>
+                  <td>Диалог абиту</td>
+                  <td><input type="text" class="form-control" id="modal_conversation_id"></td>
+                </tr>
+                <tr>
+                  <td>Админ</td>
+                  <td><input type="text" class="form-control" id="modal_admin_id"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" id="modal_button">Сохранить</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
-    <script src="js/getdata.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/tableLogic.js"></script>
   </body>
 </html>
