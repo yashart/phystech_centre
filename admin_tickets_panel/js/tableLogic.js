@@ -8,7 +8,7 @@ $(document).ready(function() {
     "processing": true,
     'ajax': {
       method: "GET",
-      url: "http://abitu.net/tickets_admin/",
+      url: "http://abitu.net/tickets_admin/get_data",
       dataType: "jsonp",
       contentType: "jsonp",
     },

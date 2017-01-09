@@ -7,14 +7,14 @@ app = Flask(__name__)
 import json
 
 
-@app.route('/', methods=['GET'])
+@app.route('/get_data', methods=['GET'])
 def get_info():
     if request.method == 'GET':
         callback = request.args.get('callback')
 
-        response = database.get_data()
+        #response = database.get_data()
         respDict = {}
-        respDict["data"] = database.make_json_from_data(response)
+        #respDict["data"] = database.make_json_from_data(response)
         return callback + '(' + json.dumps(respDict) + ')'
 
 @app.route('/send_data', methods=['GET'])
