@@ -7,7 +7,7 @@ app = Flask(__name__)
 import json
 
 
-@app.route('/get_data', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_info():
     if request.method == 'GET':
         callback = request.args.get('callback')
