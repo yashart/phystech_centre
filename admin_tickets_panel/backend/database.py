@@ -30,20 +30,23 @@ def make_json_from_data(database_answer):
         print row
         rowDict = {}
         rowDict['id_ticket'] = u'<b>' + str(row[0]) + u'</b>'
-        rowDict['time'] = row[1]
-        rowDict['user_info'] = u'id - ' + str(row[2]) + u'<br>' +\
-                               row[3] + u'<br>' + \
-                               row[4] + u'<br>' + \
+        rowDict['user_info'] = u'id - ' + str(row[1]) + u'<br>' +\
+                               str(row[3]) + u'<br>' + \
+                               str(row[4]) + u'<br>' + \
                                str(row[5])
-        rowDict['browser'] = row[6]
-        rowDict['ticket_data'] = u'<b>' + row[7] + u'</b>' + u'<br>' + \
-                                 row[8]
-        rowDict['url'] = row[9]
-        rowDict['id_type'] = row[10]
-        rowDict['priority'] = row[11]
-        rowDict['status'] = row[12]
-        rowDict['conversation_id'] = str(row[13])
-        rowDict['admin_id'] = str(row[14])
+	rowDict['admin_id'] = str(row[2])
+        rowDict['browser'] = str(row[6]) + u'<br>' + \
+			     str(row[7])
+	rowDict['url'] = str(row[8])
+        rowDict['ticket_data'] = u'<b>' + row[9] + u'</b>' + u'<br>' + \
+                                 row[10]
+	rowDict['screenshots'] = row[11]
+	rowDict['time'] = u'creation data - ' + row[12] + u'<br>' + \
+			  u'modified data - ' + row[13]
+        rowDict['id_type'] = row[14]
+        rowDict['priority'] = row[15]
+        rowDict['status'] = row[16]
+        rowDict['conversation_id'] = str(row[17])
         rowDict['editButton'] = u'<button type="button" id="editButton' + str(row[0]) +\
                                 u'" class="btn btn-primary">' +\
                                u'Редактировать' + u'</button>'
@@ -62,12 +65,12 @@ def change_data(ticket_id, ticket_type, ticket_priority,
                        charset=config.get('admin_panel_db', 'charset'))
     c = conn.cursor()
     c.execute('UPDATE ' + config.get('admin_panel_db', 'tickets_table') + ''' SET
-    id_type = %s,
+    type_id = %s,
     priority = %s,
     status = %s,
     conversation_id = %s,
     admin_id = %s
-    WHERE id_ticket = %s''', param_tup)
+    WHERE ticket_id = %s''', param_tup)
     conn.commit()
 
     conn.close()
