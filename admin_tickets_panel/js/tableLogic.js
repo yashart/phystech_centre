@@ -8,7 +8,7 @@ $(document).ready(function() {
     "processing": true,
     'ajax': {
       method: "GET",
-      url: "http://abitu.net/tickets_admin/get_data",
+      url: "http://abitu.net//tickets_admin/get_data",
       dataType: "jsonp",
       contentType: "jsonp",
     },
@@ -40,7 +40,7 @@ $(document).ready(function() {
     });
   });
 
-  $('#main_table').on('click', 'tr td button', function(){
+  $('#main_table').on('click', '.editButton', function(){
     $($(this).parent().parent().find('td')[3]).text();
     modal_init($(this).parent().parent().find('td'));
     $('#popupEdit').modal("show");

@@ -28,28 +28,31 @@ def make_json_from_data(database_answer):
     responseList = []
     for row in database_answer:
         print row
+        print len(row)
         rowDict = {}
-        rowDict['id_ticket'] = u'<b>' + str(row[0]) + u'</b>'
-        rowDict['user_info'] = u'id - ' + str(row[1]) + u'<br>' +\
-                               str(row[3]) + u'<br>' + \
-                               str(row[4]) + u'<br>' + \
-                               str(row[5])
-	rowDict['admin_id'] = str(row[2])
-        rowDict['browser'] = str(row[6]) + u'<br>' + \
-			     str(row[7])
-	rowDict['url'] = str(row[8])
-        rowDict['ticket_data'] = u'<b>' + row[9] + u'</b>' + u'<br>' + \
-                                 row[10]
-	rowDict['screenshots'] = row[11]
-	rowDict['time'] = u'creation data - ' + row[12] + u'<br>' + \
-			  u'modified data - ' + row[13]
-        rowDict['id_type'] = row[14]
-        rowDict['priority'] = row[15]
-        rowDict['status'] = row[16]
-        rowDict['conversation_id'] = str(row[17])
-        rowDict['editButton'] = u'<button type="button" id="editButton' + str(row[0]) +\
-                                u'" class="btn btn-primary">' +\
-                               u'Редактировать' + u'</button>'
+        rowDict['id_ticket'] = u'<b>' + unicode(row[0]) + u'</b>'
+        rowDict['user_info'] = u'id - ' + unicode(row[1]) + u'<br>' + \
+                               unicode(row[3]) + u'<br>' + \
+                               unicode(row[4]) + u'<br>'
+        rowDict['admin_id'] = unicode(row[2])
+        rowDict['browser'] = unicode(row[6]) + u'<br>' + \
+                             unicode(row[7])
+        rowDict['url'] = unicode(row[8])
+        rowDict['ticket_data'] = u'<b>' + unicode(row[9]) + u'</b>' + u'<br>' + \
+                                 unicode(row[10])
+        rowDict['screenshots'] = unicode(row[11])
+        rowDict['time'] = u'creation data - ' + unicode(row[12]) + u'<br>' + \
+			  u'modified data - ' + unicode(row[13])
+        rowDict['id_type'] = unicode(row[14])
+        rowDict['priority'] = unicode(row[15])
+        rowDict['status'] = unicode(row[16])
+        rowDict['conversation_id'] = unicode(row[17])
+        rowDict['editButton'] = u'<button type="button" id="editButton' + unicode(row[0]) +\
+                                u'" class="btn btn-primary editButton">' +\
+                                u'Редактировать' + u'</button>'
+        rowDict['conversation_id'] = u'<button type="button" id="conversationButton' + unicode(row[17]) +\
+                                     u'" class="btn btn-primary conversationButton">' +\
+                                     u'Диалог' + u'</button>'
 
         responseList.append(rowDict)
     return responseList
