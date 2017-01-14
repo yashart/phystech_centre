@@ -27,8 +27,8 @@ def get_data():
 def make_json_from_data(database_answer):
     responseList = []
     for row in database_answer:
-        print row
-        print len(row)
+        #print row
+        #print len(row)
         rowDict = {}
         rowDict['id_ticket'] = u'<b>' + unicode(row[0]) + u'</b>'
         rowDict['user_info'] = u'id - ' + unicode(row[1]) + u'<br>' + \

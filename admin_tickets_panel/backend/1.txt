@@ -1,0 +1,846 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru">
+	<head>
+				<base href="https://abitu.net">
+		<link rel="yandex-tableau-widget" href="application/modules/Core/externals/yandex_tablo.json">
+                <meta name="viewport" content="width=device-width" />
+<style type='text/css'>body,html { min-width: 490px;}</style>				
+		<title>Abitu.Net</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="ru_RU" />
+<meta name="keywords" content="Социальная сеть, обучение, соцсеть, школьники, абитуриенты, образование, abitu.net, abitu.ru, подготовка к ЕГЭ, ЕГЭ, МФТИ, Физтех, Физтех-Центр.," />
+
+
+	  	  <link href="/application/themes/clean/theme.css?c=895" media="screen" rel="stylesheet" />
+<link href="/favicon.ico?c=895" rel="favicon" type="image/x-icon" />
+<link href="/externals/bxslider/bxslider.css?c=895" media="screen" rel="stylesheet" />
+<link href="/application/themes/clean/abitu2015.css?c=895" media="screen" rel="stylesheet" />
+<link href="/application/themes/clean/zftsh_compile.css?c=895" media="screen" rel="stylesheet" />
+<link href="/application/modules/Olympic/externals/styles/olympic-widget.css?c=895" media="screen" rel="stylesheet" />
+<link href="/application/themes/clean/abitu_rewrites.css?c=895" media="screen" rel="stylesheet" />	  			
+	  
+	  <script>
+		if (window.location.hash == '#_=_')window.location.hash = '';
+		var locale = 'ru';
+			  </script>
+						  
+		<script src="/externals/mootools/mootools-core-1.4.5-full-compat-yc.js?c=895"></script>
+<script src="/externals/mootools/mootools-more-1.4.0.1-full-compat-yc.js?c=895"></script>
+<script src="/externals/chootools/chootools.js?c=895"></script>
+<script src="/externals/jquery.min.js?c=895"></script>
+<script src="/externals/jquery.ajaxbutton.js?c=895"></script>
+<script src="/application/modules/Core/externals/scripts/core.js?c=895"></script>
+<script src="/application/modules/Core/externals/scripts/costili.js?c=895"></script>
+<script src="/externals/smoothbox/smoothbox4.js?c=895"></script>
+<script src="/externals/autosize.min.js?c=895"></script>
+<script src="/application/modules/Core/externals/scripts/auto-ajax.js?c=895"></script>
+<script>
+    //<![CDATA[
+    		if (typeof jQuery != 'undefined')jQuery.noConflict();
+		Date.setServerOffset('Sat, 14 Jan 2017 18:20:56 +0000');
+
+		en4.orientation = 'ltr';
+		en4.core.environment = 'production';
+		en4.core.language.setLocale('ru_RU');
+		en4.core.setBaseUrl('/');
+		en4.core.staticBaseUrl = '/';
+		en4.core.loader = new Element('img', {src: en4.core.staticBaseUrl + 'application/modules/Core/externals/images/loading.gif'});
+
+						  en4.user.viewer = {
+			type : 'user',
+			id : 8440,
+			guid : 'user_8440'
+		  };
+				if( false ) {
+		  en4.core.runonce.add(function() {
+			en4.core.dloader.attach();
+		  });
+		}
+
+		    //]]>
+</script>
+<script>
+    //<![CDATA[
+    en4.core.language.addData({"now":"\u0442\u043e\u043b\u044c\u043a\u043e \u0447\u0442\u043e","in a few seconds":"\u0432 \u0441\u0447\u0438\u0442\u0430\u043d\u043d\u044b\u0435 \u0441\u0435\u043a\u0443\u043d\u0434\u044b","a few seconds ago":"\u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0441\u0435\u043a\u0443\u043d\u0434 \u043d\u0430\u0437\u0430\u0434","%s minute ago":["%s \u043c\u0438\u043d\u0443\u0442\u0443 \u043d\u0430\u0437\u0430\u0434","%s \u043c\u0438\u043d\u0443\u0442\u044b \u043d\u0430\u0437\u0430\u0434","%s \u043c\u0438\u043d\u0443\u0442 \u043d\u0430\u0437\u0430\u0434"],"in %s minute":["\u0447\u0435\u0440\u0435\u0437 %s \u043c\u0438\u043d\u0443\u0442\u0443","\u0447\u0435\u0440\u0435\u0437 %s \u043c\u0438\u043d\u0443\u0442\u044b","\u0447\u0435\u0440\u0435\u0437 %s \u043c\u0438\u043d\u0443\u0442"],"%s hour ago":["%s \u0447\u0430\u0441 \u043d\u0430\u0437\u0430\u0434","%s \u0447\u0430\u0441\u0430 \u043d\u0430\u0437\u0430\u0434","%s \u0447\u0430\u0441\u043e\u0432 \u043d\u0430\u0437\u0430\u0434"],"in %s hour":["\u0447\u0435\u0440\u0435\u0437 %s \u0447\u0430\u0441","\u0447\u0435\u0440\u0435\u0437 %s \u0447\u0430\u0441\u0430","\u0447\u0435\u0440\u0435\u0437 %s \u0447\u0430\u0441\u043e\u0432"],"%s at %s":"%s \u0432 %s"});    //]]>
+</script>
+<script src="/externals/bxslider/bxslider.js?c=895"></script>
+<script>
+    //<![CDATA[
+    var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-27051643-3']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();    //]]>
+</script>
+<script src="/externals/autocompleter/Observer.js?c=895"></script>
+<script src="/externals/autocompleter/Autocompleter.js?c=895"></script>
+<script src="/externals/autocompleter/Autocompleter.Request.js?c=895"></script>
+<script src="/application/modules/Core/externals/scripts/searchAutocomplete.js?c=895"></script>			</head>
+	<body id="global_page_user-index-home">
+		<div class="layout_page_header">
+<div class="generic_layout_container layout_main">
+<header id="global_header">
+    <div class="g-container">
+        <div class="obj-header">
+            <div class="obj-header__flex-container">
+                <div class="obj-header__flex-item col-logo">
+                    <div class="obj-header__logo">
+                        <a href="/" class="obj-header__logo-link">
+                            <img src="/public/admin/abitu_logo_new.png" alt="" class="obj-header__logo-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="obj-header__flex-item col-search">
+                    <div class="obj-header__search">
+                        <form class="obj-header__search-form" id="global_search_form" action="/search" method="get">
+                            <i class="obj-header__search-icon" onclick="jQuery(this).parent().submit()"></i>
+                            <input class="obj-header__search-field" autocompleteURL="/search/autocomplete" type="text" class="text suggested" name="query" id="global_search_field" size="20" maxlength="100" placeholder="Поиск по сайту">
+                        </form>
+                    </div>
+                </div>
+                <div class="obj-header__flex-item col-user">
+                    <div class="obj-header__user">
+                                                                                <a href="/profile/yashart"> 
+                                <span class="obj-header__user-avatar" style="background-image: url(/application/modules/User/externals/images/man.jpg);background-position:center;background-repeat:no-repeat;background-size: auto 100%;"></span>
+                            </a>
+                            <div class="obj-header__user-interface" style="padding-left:70px;">
+                                <div>
+                                    <a href="/profile/yashart" class="obj-header__user-btn-link">Артем Яшухин</a>
+                                </div>
+                                <div>
+                                    <a href="/logout" class="obj-header__user-btn-exit">Выход</a>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<script type="text/javascript">
+    jQuery(function(){
+        searchAutocomplete(jQuery('#global_search_field'), function (row) {
+            jQuery(this).val( row.data('name')   );
+            document.location.href = row.data('href');
+        }, {selectFirst : false, unselectedNotStop: true});
+    });
+</script></div>
+</div>
+		
+		<div id="global_wrapper">
+			<section id="global_content">
+                                        <aside id="global_left_menu">
+                                                    <div id="leftMenuMain">
+    <nav class="obj-main-menu">
+        <ul class="obj-main-menu__list">
+            <li class="obj-main-menu__item">  
+                <a href="/events" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-events"></i>
+                    <span class="obj-main-menu___string">Мероприятия</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/articles" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-articles"></i>
+                    <span class="obj-main-menu___string">Статьи</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/folders" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-dir"></i>
+                    <span class="obj-main-menu___string">Пособия</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/user_search" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-user"></i>
+                    <span class="obj-main-menu___string">Пользователи</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/videos" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-video"></i>
+                    <span class="obj-main-menu___string">Видео</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/courses" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-courses"></i>
+                    <span class="obj-main-menu___string">Онлайн-курсы</span>
+                </a>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/groups" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-group"></i>
+                    <span class="obj-main-menu___string">Группы</span>
+                </a>
+            </li>
+                        <li class="obj-main-menu__item menu_upper_separate">  
+                <a href="/messages/inbox" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-mail"></i>
+                    <span class="obj-main-menu___string">Сообщения </span>
+                </a>
+            </li>
+                        <li id="core_menu_mini_menu_update" class="obj-main-menu__item">
+                <span onclick="toggleUpdatesPulldown(event, this, '4');" class="updates_pulldown">
+                  <div class="pulldown_contents_wrapper">
+                      <div class="pulldown_contents">
+                          <ul class="notifications_menu" id="notifications_menu">
+                              <div class="notifications_loading" id="notifications_loading">
+                                  <img src='/application/modules/Core/externals/images/loading.gif'
+                                       style='float:left; margin-right: 5px;'/>
+                                  Загрузка ...                              </div>
+                          </ul>
+                      </div>
+                      <div class="pulldown_options">
+                          <a  href="/activity/notifications" id="notifications_viewall_link">Просмотреть все обновления</a>                          <a  href="javascript:void(0);" id="notifications_markread_link">Отметить как прочитанные</a>                      </div>
+                  </div>
+                  <a href="javascript:void(0);" class="obj-main-menu__link" id = "updates_toggle">
+                    <i class="obj-main-menu__icon ic-refresh"></i>
+                    <span class="obj-main-menu___string">
+                        Обновления (0)                    </span>
+                  </a>
+                </span>
+            </li>
+            <li class="obj-main-menu__item">  
+                <a href="/members/settings/general" class="obj-main-menu__link">
+                    <i class="obj-main-menu__icon ic-options"></i>
+                    <span class="obj-main-menu___string">Настройки</span>
+                </a>
+            </li>
+                    </ul>
+    </nav>
+</div>
+<div id="core_menu_mini_menu">
+    <ul>
+                
+
+                    </ul>
+</div>
+<script src="/application/modules/Activity/externals/scripts/core.js?c=895"></script>
+<script src="/application/modules/Core/externals/scripts/notification_updater.js?c=895"></script>
+                                        </aside>
+					<div id="global_content_inner">
+						<div class="layout_page_user_index_home">
+<div class="generic_layout_container layout_main">
+<div class="generic_layout_container layout_middle">
+<div class="generic_layout_container layout_announcement_list_announcements"><!-- use bxslider jquery plugin -->
+<div class="obj-main-slideshow material_shaddow">
+    <ul class="js-main-slideshow">
+                <li>
+                                <A HREF="http://olymp-online.mipt.ru" style="display:block">
+                                                        <img alt="​Онлайн-этап олимпиад «ФИЗТЕХ» 2017 года" src="/public/admin/promo/online2017banner.png" style="max-width:100%;"/>
+                                        <h3 class="announcements_title">
+                        ​Онлайн-этап олимпиад «ФИЗТЕХ» 2017 года                    </h3>
+                                </A>
+                                <div class="announcements_body" id="announcement_138">
+                    <div class="view_more"><p style="font-size:12pt; margin-bottom:20px;">Онлайн-этап - это<br>- 100 баллов ЕГЭ по физике или математике;<br>- поступление без экзаменов в большинство вузов России;<br>- множество ценных призов;<br>- отличная тренировка, а также подготовка к другим олимпиадам из Перечня олимпиад школьников.</p></div>                </div>
+                <div class="announcements_actions">
+                                            <div class="announcements_date">
+                            1 октября — 5 февраля                        </div>
+                                                                <button onclick="document.location.href = 'http://olymp-online.mipt.ru';">Принять участие</button>
+                                    </div>
+            </li>
+                <li style="display:none;">
+                                <A HREF="http://abitu.net/start" style="display:block">
+                                                        <img alt="XIX международная конференция школьников «Старт в Науку»" src="/public/admin/promo/start2017banner.png" style="max-width:100%;"/>
+                                        <h3 class="announcements_title">
+                        XIX международная конференция школьников «Старт в Науку»                    </h3>
+                                </A>
+                                <div class="announcements_body" id="announcement_141">
+                    <div class="view_more"><p style="font-size:12pt; margin-bottom:20px;">Международная конференция научно-технических работ школьников «Старт в Науку» - ежегодное мероприятие, которое проводится для школьников России и стран СНГ на базе Московского физико-технического института. Победители конференции получают льготы при поступлении в МФТИ в качестве дополнительных баллов в индивидуальное портфолио.</p></div>                </div>
+                <div class="announcements_actions">
+                                                                <button onclick="document.location.href = 'http://abitu.net/start';">Принять участие</button>
+                                    </div>
+            </li>
+                <li style="display:none;">
+                                <A HREF="https://abitu.net/mycity" style="display:block">
+                                                        <img alt="56-я Выездная физика-математическая олимпиада МФТИ" src="/public/admin/promo/mycity2017.jpg" style="max-width:100%;"/>
+                                        <h3 class="announcements_title">
+                        56-я Выездная физика-математическая олимпиада МФТИ                    </h3>
+                                </A>
+                                <div class="announcements_body" id="announcement_155">
+                    <div class="view_more"><p style="font-size: 12pt; margin-bottom: 20px;">Примите  участие в самой масштабной олимпиаде МФТИ! Более 300 точек проведения по всей России и странам СНГ. Олимпиада проводиться по математике и физике для 5-11 классов.</p></div>                </div>
+                <div class="announcements_actions">
+                                                                <button onclick="document.location.href = 'https://abitu.net/mycity';">Подробнее</button>
+                                    </div>
+            </li>
+                <li style="display:none;">
+                                <A HREF="https://phystech.academy/" style="display:block">
+                                                        <img alt="Phystech.Academy - подготовительный факультет МФТИ" src="/public/announcement/6f/1b/03/31557_4206.png?c=2a98" style="max-width:100%;"/>
+                                        <h3 class="announcements_title">
+                        Phystech.Academy - подготовительный факультет МФТИ                    </h3>
+                                </A>
+                                <div class="announcements_body" id="announcement_152">
+                    <div class="view_more"><p style="font-size: 12pt; margin-bottom: 20px;">5 декабря стартовала дистанционная программа дополнительного образования по подготовке учащихся выпускных и предвыпускных классов к обучению в российских вузах «Phystech.Academy».</p></div>                </div>
+                <div class="announcements_actions">
+                                            <div class="announcements_date">
+                            26 недель                        </div>
+                                                                <button onclick="document.location.href = 'https://phystech.academy/';">Поступить!</button>
+                                    </div>
+            </li>
+                <li style="display:none;">
+                                <A HREF="https://kontrolnaya.mipt.ru/" style="display:block">
+                                                        <img alt="Всероссийская контрольная "Выходи решать!"" src="/public/admin/promo/kontrolnaya1.JPG" style="max-width:100%;"/>
+                                        <h3 class="announcements_title">
+                        Всероссийская контрольная "Выходи решать!"                    </h3>
+                                </A>
+                                <div class="announcements_body" id="announcement_150">
+                    <div class="view_more"><p style="font-size: 12pt; margin-bottom: 20px;">Впервые, 12 февраля 2017 года, Московским физико-техническим институтом проводится Всероссийская физико-техническая контрольная «Выходи решать!» при поддержке и содействии «Яндекс».</p></div>                </div>
+                <div class="announcements_actions">
+                                                                <button onclick="document.location.href = 'https://kontrolnaya.mipt.ru/';">Принять участие</button>
+                                    </div>
+            </li>
+            </ul>
+</div>
+<script>
+    var annoucementSliderLoad = function() {
+        jQuery('.generic_layout_container .js-main-slideshow li').removeAttr('style');
+
+        var sliderClass = '.generic_layout_container .js-main-slideshow';
+
+        var bxSlider = jQuery(sliderClass).bxSlider({ 
+             controls: false,
+             pager: true,
+             adaptiveHeight: true,
+             infiniteLoop: true    
+        });
+        bxSlider.startAuto();
+        
+        jQuery(sliderClass+' li.bx-clone > div').removeAttr('id'); /*bugfix - wuth last-slide slideToggle*/
+        
+        jQuery('.extended_view_more').click(function() {
+            var height = jQuery(this).parents('li').find('.view_more_second').get( 0 ).scrollHeight 
+                    + jQuery(this).parents('li').height() 
+                    - jQuery(this).parents('li').find('.view_more_first')[0].scrollHeight;
+            var originalHeight = jQuery(this).parents('.bx-viewport').height();
+            jQuery(this).parents('.bx-viewport').attr('origHeight', originalHeight).animate({height: height}, 300);
+        });
+        jQuery('.extended_view_less').click(function() {
+            var height = jQuery(this).parents('.bx-viewport').attr('origHeight');
+            jQuery(this).parents('.bx-viewport').animate({height: height}, 300);
+        });
+        
+        jQuery('.obj-main-slideshow').hover(function() {
+            bxSlider.stopAuto();
+        }, function() {
+            bxSlider.startAuto();
+        });
+        jQuery(window).scroll(function() {
+            var sliderTopPosition = bxSlider.offset().top;
+            if( jQuery(this).scrollTop() > sliderTopPosition + 200 ) {
+                bxSlider.stopAuto();
+            } else {
+                bxSlider.startAuto();
+            }
+        });
+    };
+    var annoucementCheckImgLoad =  function() {
+        var imgs = jQuery('.js-main-slideshow img');
+        if (imgs.length >=2 && imgs[1].naturalWidth > 0 ){
+            annoucementSliderLoad();
+        }else{
+            setTimeout(annoucementCheckImgLoad, 10);
+        }
+    };
+    
+    jQuery(document).ready(annoucementCheckImgLoad);
+</script>
+</div>
+
+<div class="generic_layout_container layout_core_item_landing"><div class="item_display 1252">
+        <div class="landing_division" for="division_1" onclick="document.location.href = '/events';" >
+        <div class="division_landing_info" style="height:135px;">
+            <span class="division_landing_link landing_event">
+                События                <span class="division_landing_more">смотреть все</span>
+            </span>
+            
+        </div>
+        <div class="division_content">
+            <style type="text/css">
+    #division_1 .itemBlock
+    {
+        width:210px;
+        height:210px;
+        overflow:hidden;
+    }
+    #division_1 .item_hi_label
+    {
+        width:204px;
+        overflow:hidden;
+        margin-top:82px;
+    }
+    
+    #division_1 .item_view
+    {
+         margin: 10px;
+         margin-right: 7px;
+    }
+</style>
+
+
+
+<div class="division_view" id="division_1">
+            <a class="item_view itemBlock material_shaddow" title="XIX международная конференция научно-технических работ школьников «Старт в Науку»"  href="/start" for="event_1961">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        XIX международная конференция научно-технических работ школьников «Старт в Науку»                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/event/7b/5a/02/25623_4768.png?c=d0b7);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Онлайн-этап олимпиад «Физтех» 2017 года"  href="/event/1954" for="event_1954">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Онлайн-этап олимпиад «Физтех» 2017 года                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/event/ab/75/01/17337_cf0f.png?c=4b37);background-position:center;background-repeat:no-repeat;background-size: auto 100%;background-position:center;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="56-я Выездная физико-математическая олимпиада МФТИ 2017 года"  href="/mycity" for="event_1958">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        56-я Выездная физико-математическая олимпиада МФТИ 2017 года                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/event/8b/b4/01/1b1d8_010d.jpg?c=659f);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Онлайн-этап ОХО 2017"  href="/event/1949" for="event_1949">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Онлайн-этап ОХО 2017                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/event/bf/92/01/1902e_8934.png?c=0cda);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+    </div>
+        </div>
+    </div>
+        <div class="landing_division" for="division_2" onclick="document.location.href = '/courses';" >
+        <div class="division_landing_info" style="height:135px;">
+            <span class="division_landing_link landing_course">
+                Курсы                <span class="division_landing_more">смотреть все</span>
+            </span>
+            
+        </div>
+        <div class="division_content">
+            <style type="text/css">
+    #division_2 .itemBlock
+    {
+        width:210px;
+        height:210px;
+        overflow:hidden;
+    }
+    #division_2 .item_hi_label
+    {
+        width:204px;
+        overflow:hidden;
+        margin-top:82px;
+    }
+    
+    #division_2 .item_view
+    {
+         margin: 10px;
+         margin-right: 7px;
+    }
+</style>
+
+
+
+<div class="division_view" id="division_2">
+            <a class="item_view itemBlock material_shaddow" title="Русский язык Phystech.Academy. Модуль 1"  href="/course/1096" for="course_1096">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Русский язык Phystech.Academy. Модуль 1                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/course/a7/1f/03/3198b_563a.png?c=da3a);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Подготовка к Всероссийским олимпиадам по физике для 10 класса"  href="/rosolymp_phys" for="course_1073">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка к Всероссийским олимпиадам по физике для 10 класса                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/course/39/6f/02/26acc_7cbe.jpg?c=b905);background-position:center;background-repeat:no-repeat;background-size: 100% auto;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Подготовка к ЕГЭ 2017 от МФТИ"  href="/ege" for="course_1042">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка к ЕГЭ 2017 от МФТИ                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/course/af/1d/02/21994_10a8.jpg?c=5b91);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Онлайн-курс повышения квалификации учителей математики"  href="/kpk_online_math" for="course_1006">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Онлайн-курс повышения квалификации учителей математики                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/course/b6/0d/02/209ab_6463.jpg?c=1c02);background-position:center;background-repeat:no-repeat;background-size: 100% auto;">
+                &nbsp;
+            </span>
+        </a>
+    </div>
+        </div>
+    </div>
+        <div class="landing_division" for="division_3" onclick="document.location.href = '/videos';" >
+        <div class="division_landing_info" style="height:135px;">
+            <span class="division_landing_link landing_video">
+                Видео                <span class="division_landing_more">смотреть все</span>
+            </span>
+            
+        </div>
+        <div class="division_content">
+            <style type="text/css">
+    #division_3 .itemBlock
+    {
+        width:210px;
+        height:210px;
+        overflow:hidden;
+    }
+    #division_3 .item_hi_label
+    {
+        width:204px;
+        overflow:hidden;
+        margin-top:82px;
+    }
+    
+    #division_3 .item_view
+    {
+         margin: 10px;
+         margin-right: 7px;
+    }
+</style>
+
+
+
+<div class="division_view" id="division_3">
+            <a class="item_view itemBlock material_shaddow" title="[Физика] [7 класс] Разбор муниципального этапа МО Всероссийской олимпиады"  href="/videos/846" for="video_846">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        [Физика] [7 класс] Разбор муниципального этапа МО Всероссийской олимпиады                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/video/b0/1b/03/31598_c6e8.jpg?c=763e);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Подготовка к ЕГЭ по математике. Занятие 1. Планиметрия."  href="/videos/664" for="video_664">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка к ЕГЭ по математике. Занятие 1. Планиметрия.                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/video/d5/2a/02/226ad_a509.jpg?c=f0a3);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Подготовка по физике 2016 года. Занятие 1. Кинематика. Графические задачи."  href="/videos/663" for="video_663">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка по физике 2016 года. Занятие 1. Кинематика. Графические задачи.                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/video/22/1e/02/21a06_3f28.jpg?c=8a99);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Курсы повышения квалификации. Физика. Занятие 1. Связь скоростей при переходе из одной СО в другую."  href="/videos/630" for="video_630">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Курсы повышения квалификации. Физика. Занятие 1. Связь скоростей при переходе из одной СО в другую.                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/video/b3/19/02/2159c_f37d.jpg?c=aa49);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+    </div>
+        </div>
+    </div>
+        <div class="landing_division" for="division_5" onclick="document.location.href = '/articles';" >
+        <div class="division_landing_info" style="height:135px;">
+            <span class="division_landing_link landing_article">
+                Статьи                <span class="division_landing_more">смотреть все</span>
+            </span>
+            
+        </div>
+        <div class="division_content">
+            <style type="text/css">
+    #division_5 .itemBlock
+    {
+        width:210px;
+        height:210px;
+        overflow:hidden;
+    }
+    #division_5 .item_hi_label
+    {
+        width:204px;
+        overflow:hidden;
+        margin-top:82px;
+    }
+    
+    #division_5 .item_view
+    {
+         margin: 10px;
+         margin-right: 7px;
+    }
+</style>
+
+
+
+<div class="division_view" id="division_5">
+            <a class="item_view itemBlock material_shaddow" title="Кадастр Абитуриентов МФТИ"  href="/articles/133" for="article_133">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Кадастр Абитуриентов МФТИ                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/article/c3/75/01/1734f_06d7.png?c=3818);background-position:center;background-repeat:no-repeat;background-size: auto 100%;background-position:center;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="СНПО "Бакалавры Физтеха""  href="/articles/74" for="article_74">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        СНПО "Бакалавры Физтеха"                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/article/ea/76/01/17475_a5ce.png?c=e075);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Физтех-Центр"  href="/articles/43" for="article_43">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Физтех-Центр                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/article/de/76/01/17469_fb5e.png?c=8e2e);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Обращение ректора"  href="/articles/3" for="article_3">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Обращение ректора                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/article/da/76/01/17465_3774.jpg?c=3d7b);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+    </div>
+        </div>
+    </div>
+        <div class="landing_division" for="division_9" onclick="document.location.href = '/folders';" >
+        <div class="division_landing_info" style="height:135px;">
+            <span class="division_landing_link landing_folder">
+                Пособия                <span class="division_landing_more">смотреть все</span>
+            </span>
+            
+        </div>
+        <div class="division_content">
+            <style type="text/css">
+    #division_9 .itemBlock
+    {
+        width:210px;
+        height:210px;
+        overflow:hidden;
+    }
+    #division_9 .item_hi_label
+    {
+        width:204px;
+        overflow:hidden;
+        margin-top:82px;
+    }
+    
+    #division_9 .item_view
+    {
+         margin: 10px;
+         margin-right: 7px;
+    }
+</style>
+
+
+
+<div class="division_view" id="division_9">
+            <a class="item_view itemBlock material_shaddow" title="Подготовка к ЕГЭ 2016 года по математике."  href="/folder/83" for="folder_83">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка к ЕГЭ 2016 года по математике.                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/folder/97/25/02/22174_3b60.jpg?c=cb10);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Подготовка к ЕГЭ 2016 года по физике."  href="/folder/77" for="folder_77">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Подготовка к ЕГЭ 2016 года по физике.                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/folder/e5/1e/02/21ac9_d8e0.jpg?c=8b05);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Методические пособия по подготовке к олимпиадам"  href="/folder/47" for="folder_47">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Методические пособия по подготовке к олимпиадам                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/folder/e6/76/01/17471_910e.png?c=1f1c);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+            <a class="item_view itemBlock material_shaddow" title="Условия олимпиад прошлых лет"  href="/folder/30" for="folder_30">
+            
+            <span class="item_highlight itemBlock">
+                                                <span class="item_hi_label">
+                    <span>
+                        Условия олимпиад прошлых лет                    </span>
+                </span>
+                            </span>
+            
+            <span class="item_photo" style="background-image: url(/public/folder/e2/76/01/1746d_910e.png?c=1f1c);background-position:center;background-repeat:no-repeat;background-size: auto 100%;">
+                &nbsp;
+            </span>
+        </a>
+    </div>
+        </div>
+    </div>
+    </div></div>
+</div>
+</div>
+</div>
+					</div>
+			</section>
+		</div>
+
+		<div class="layout_page_footer">
+<div class="generic_layout_container layout_main">
+<footer id="global_footer">
+    <div class="g-container">
+            <div class="obj-footer">
+                <div class="obj-footer__flex-container">
+                    <div class="obj-footer__flex-item col-copyright">
+                        <span class="obj-footer__copyright-string">
+                            Copyright © 2012 — 2017                        </span>
+                    </div>
+                                        <div class="obj-footer__flex-item col-orphography">
+                        <script type="text/javascript">
+                            var orphusEmail = "penko@abitu.net";
+                        </script>
+                        <script type="text/javascript" src="/externals/orphus/orphus.js"></script>
+                        <a href="//orphus.ru" id="orphus" target="_blank" style="opacity:0;display:inline-block;width:0;"><img alt="Система Orphus" src="/externals/orphus/orphus.gif" border="0" width="88" height="31" /></a>
+                        <i class="fa fa-check"></i>
+                        <div>
+                            <div>
+                                Нашли опечатку?
+                            </div>
+                            <div>
+                                <B>Ctrl+Enter</B> <A href="//orphus.ru" id="orphus" target="_blank">Orphus</A>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="obj-footer__flex-item col-menu">
+                        <a href="/help/terms" class="menu_core_footer core_footer_terms">Правовая информация</a>
+                        <a href="/help" class="menu_core_footer core_footer_help">Техническая информация</a>
+                        <a href="/help/contact" class="menu_core_footer core_footer_contact">Задать вопрос</a>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+</footer>
+
+</div>
+</div>
+
+		<script>
+						(function(d,w,c){(w[c]=w[c]||[]).push(function(){try{w.yaCounter26587689=new Ya.Metrika({id:26587689,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true,trackHash:true})}catch(e){}});var n=d.getElementsByTagName("script")[0],s=d.createElement("script"),f=function(){n.parentNode.insertBefore(s,n)};s.type="text/javascript";s.async=true;s.src=(d.location.protocol==="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(w.opera=="[object Opera]")d.addEventListener("DOMContentLoaded",f,false);else f()})(document,window,"yandex_metrika_callbacks");
+			
+		</script>
+		<noscript><div><img src="//mc.yandex.ru/watch/26587689" style="position:absolute; left:-9999px;"></div></noscript>
+	</body>
+	
+</html>

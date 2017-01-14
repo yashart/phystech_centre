@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, abort
 import database
+import check_admin
 app = Flask(__name__)
 import json
 
@@ -11,6 +12,10 @@ import json
 def get_info():
     if request.method == 'GET':
         callback = request.args.get('callback')
+        userId = check_admin.get_id(request.cookies)
+
+        if(check_admin.is_admin(userId) == False):
+            abort(401)
 
         response = database.get_data()
         respDict = {}

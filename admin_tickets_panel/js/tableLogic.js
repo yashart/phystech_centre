@@ -8,9 +8,10 @@ $(document).ready(function() {
     "processing": true,
     'ajax': {
       method: "GET",
-      url: "http://abitu.net//tickets_admin/get_data",
+      url: "http://abitu.net/tickets_admin/get_data",
       dataType: "jsonp",
       contentType: "jsonp",
+      error: handleGetDataError
     },
     "columns": [
       {"data": "id_ticket"},
@@ -68,6 +69,9 @@ $('#modal_button').click(function() {
     });
 });
 
+function handleGetDataError(xhr, textStatus, error){
+  alert("Please, log in as admin on abitu.net");
+}
 
 function modal_init(td_list){
   $('#modal_ticket_id').text($(td_list[0]).text());
@@ -125,5 +129,4 @@ function add_content() {
         }
     });
 }
-
 */
