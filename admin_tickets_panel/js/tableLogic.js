@@ -47,6 +47,10 @@ $(document).ready(function() {
     $('#popupEdit').modal("show");
   });
 
+  $('#main_table').on('click', '.conversationButton', function(){
+    $('#popupConversation').modal("show");
+  })
+
 });
 
 $('#modal_button').click(function() {

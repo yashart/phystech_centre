@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Физкек центр админка</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/datatables.min.css">
@@ -66,6 +66,24 @@
         <tbody id="main_table_body">
         </tbody>
       </table>
+    </div>
+
+    <div class="modal fade" id="popupConversation" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Диалог Абиту</h4>
+          </div>
+          <div class="modal-body" id="conversationDialog">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary">Сохранить</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="modal fade" id="popupEdit" role="dialog">
@@ -134,7 +152,6 @@
         </div>
       </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
