@@ -38,5 +38,25 @@ def send_data():
 
         return callback + '()'
 
+    return
+
+@app.route('/get_conversation', methods=['GET'])
+def get_conversation():
+    if request.method == 'GET':
+        callback = request.args.get('callback')
+        conversationId = request.args.get('conversation_id')
+        userId = check_admin.get_id(request.cookies)
+
+        if(check_admin.is_admin(userId) == False):
+            abort(401)
+
+        response = database.get_conversations(conversationId)
+        respDict = {}
+        respDict['conversation'] = database.make_conversation_html(response)
+
+        return callback + '(' + json.dumps(respDict) + ')'
+
+    return
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5022)

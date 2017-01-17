@@ -13,6 +13,7 @@ def get_id(cookies, url='http://abitu.net'):
     return int(splitRequest[1].split(',')[0])
 
 def is_admin(userId):
+    print userId
     if(userId == -1):
         return False
 

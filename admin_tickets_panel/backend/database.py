@@ -7,7 +7,6 @@ config = ConfigParser.RawConfigParser()
 config.read('db_config.cfg')
 
 def get_data():
-
     conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
                        user=config.get('admin_panel_db', 'user'),
                        passwd=config.get('admin_panel_db', 'passwd'),
@@ -27,8 +26,6 @@ def get_data():
 def make_json_from_data(database_answer):
     responseList = []
     for row in database_answer:
-        #print row
-        #print len(row)
         rowDict = {}
         rowDict['id_ticket'] = u'<b>' + unicode(row[0]) + u'</b>'
         rowDict['user_info'] = u'id - ' + unicode(row[1]) + u'<br>' + \
@@ -56,6 +53,58 @@ def make_json_from_data(database_answer):
 
         responseList.append(rowDict)
     return responseList
+
+def get_conversations(conversation_id):
+    conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
+                       user=config.get('admin_panel_db', 'user'),
+                       passwd=config.get('admin_panel_db', 'passwd'),
+                       db=config.get('admin_panel_db', 'db'),
+                       charset=config.get('admin_panel_db', 'charset'))
+    c = conn.cursor()
+
+    response = []
+    c.execute('SELECT * FROM ' + config.get('admin_panel_db', 'messages_table') + ' WHERE conversation_id = ' +
+              conversation_id + ' ORDER BY message_id')
+
+    rows = c.fetchall()
+    for row in rows:
+        response.append(row)
+    conn.close()
+
+    return response
+
+def make_conversation_html(response):
+    conversationHtml = ''
+    for row in response:
+        userId = row[2]
+        userName = get_name_by_id(userId)
+
+        conversationHtml += '<div class="jumbotron">' +\
+                                '<div class="container">' +\
+                                    '<h2>' + userName + '</h2>' +\
+                                    '<h3>' + unicode(row[3]) + ', ' + unicode(row[5]) + '</h3>' +\
+                                    '<p>' + unicode(row[4]) + '</p>' +\
+                                '</div>' +\
+                            '</div>'
+
+    return conversationHtml
+
+def get_name_by_id(id):
+    conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
+                       user=config.get('admin_panel_db', 'user'),
+                       passwd=config.get('admin_panel_db', 'passwd'),
+                       db=config.get('admin_panel_db', 'db'),
+                       charset=config.get('admin_panel_db', 'charset'))
+    c = conn.cursor()
+
+    c.execute('SELECT first_name FROM ' + config.get('admin_panel_db', 'users_table') + ' WHERE user_id = ' + str(id))
+
+    name = c.fetchall()[0][0]
+
+    conn.close()
+
+    return name
+
 
 def change_data(ticket_id, ticket_type, ticket_priority,
                 ticket_status, conversation_id, admin_id):

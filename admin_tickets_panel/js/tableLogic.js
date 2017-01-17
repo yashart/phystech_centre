@@ -33,11 +33,11 @@ $(document).ready(function() {
     var that = this;
 
     $('input', this.footer()).on('keyup change', function(){
-        if(that.search() !== this.value) {
-            that
-                .search(this.value)
-                .draw();
-        }
+      if(that.search() !== this.value) {
+        that
+          .search(this.value)
+          .draw();
+      }
     });
   });
 
@@ -48,6 +48,9 @@ $(document).ready(function() {
   });
 
   $('#main_table').on('click', '.conversationButton', function(){
+    var conversationButtonId = $(this).attr('id');
+    var conversationId = conversationButtonId.slice(18);
+    conversation_modal_init(conversationId);
     $('#popupConversation').modal("show");
   })
 
@@ -55,18 +58,18 @@ $(document).ready(function() {
 
 $('#modal_button').click(function() {
     var xmlRequest = $.ajax({
-          method: "GET",
-          url: "http://localhost:5022/send_data",
-          dataType: "jsonp",
-          contentType: "jsonp",
-          data: {
-            "ticket_id": $('#modal_ticket_id').text(),
-            "ticket_type": $('#modal_ticket_type').val(),
-            "ticket_priority": $('#modal_ticket_priority').val(),
-            "ticket_status": $('#modal_ticket_status').val(),
-            "conversation_id": $('#modal_conversation_id').val(),
-            "admin_id": $('#modal_admin_id').val()
-          }
+      method: "GET",
+      url: "http://localhost:5022/send_data",
+      dataType: "jsonp",
+      contentType: "jsonp",
+      data: {
+        "ticket_id": $('#modal_ticket_id').text(),
+        "ticket_type": $('#modal_ticket_type').val(),
+        "ticket_priority": $('#modal_ticket_priority').val(),
+        "ticket_status": $('#modal_ticket_status').val(),
+        "conversation_id": $('#modal_conversation_id').val(),
+        "admin_id": $('#modal_admin_id').val()
+      }
     });
     xmlRequest.done(function(){
       location.reload();
@@ -75,6 +78,21 @@ $('#modal_button').click(function() {
 
 function handleGetDataError(xhr, textStatus, error){
   alert("Please, log in as admin on abitu.net");
+}
+
+function conversation_modal_init(conversationId){
+  var conversationRequest = $.ajax({
+    method: "GET",
+    url: "http://abitu.net/tickets_admin/get_conversation",
+    dataType: "jsonp",
+    contentType: "jsonp",
+    data: {
+      "conversation_id": conversationId
+    }
+  });
+  conversationRequest.done(function(response){
+    $(conversationDialog).html(response.conversation);
+  })
 }
 
 function modal_init(td_list){
