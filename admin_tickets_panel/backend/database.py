@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import MySQLdb as mdb
 import ConfigParser
+from datetime import date
 
 config = ConfigParser.RawConfigParser()
 config.read('db_config.cfg')
@@ -104,6 +105,74 @@ def get_name_by_id(id):
     conn.close()
 
     return name
+
+def send_answer(ticket_id, conversation_id, user_id, answer_text):
+    conn = mdb.connect(host=config.get('admin_panel_db', 'host'),
+                       user=config.get('admin_panel_db', 'user'),
+                       passwd=config.get('admin_panel_db', 'passwd'),
+                       db=config.get('admin_panel_db', 'db'),
+                       charset=config.get('admin_panel_db', 'charset'))
+    c = conn.cursor()
+
+    print conversation_id
+    print ticket_id
+    print user_id
+
+    if(ticket_id == '0'):
+        c.execute(u'INSERT INTO ' + unicode(config.get('admin_panel_db', 'messages_table')) +
+                  u' (`conversation_id`, `user_id`, `title`, `body`, `date`)' +
+                  u' VALUES ( ' + unicode(conversation_id) +
+                  u', ' + unicode(user_id) +
+                  u', "Ответ", ' +
+                  u' "' + answer_text +
+                  u'", "' + unicode(date.today()) + u'")')
+    else:
+        c.execute(u'SELECT user_id, title  FROM ' + unicode(config.get('admin_panel_db', 'tickets_table')) +
+                  u' WHERE ticket_id = ' + unicode(ticket_id))
+        result = c.fetchall()[0]
+
+        creatorId = result[0]
+        title = result[1]
+
+        print creatorId
+        print title
+
+        c.execute(u'INSERT INTO ' + unicode(config.get('admin_panel_db', 'conversations_table')) +
+                  u' (`title`, `user_id`, `recipients`, `modified`)' +
+                  u' VALUES ( "' + unicode(title) + u'"' +
+                  u', ' + unicode(creatorId) +
+                  u', 1' +
+                  u', "' + unicode(date.today()) + u'")')
+        conversation_id = unicode(c.lastrowid)
+
+        c.execute(u'UPDATE ' + unicode(config.get('admin_panel_db', 'tickets_table')) +
+                  u' SET conversation_id = ' + conversation_id +
+                  u' WHERE ticket_id = ' + ticket_id)
+
+
+        c.execute(u'INSERT INTO ' + unicode(config.get('admin_panel_db', 'recipients_table')) +
+                  u' (`user_id`, `conversation_id`)' +
+                  u' VALUES ( ' + unicode(creatorId) +
+                  u', ' + conversation_id + u' )')
+
+        c.execute(u'INSERT INTO ' + unicode(config.get('admin_panel_db', 'recipients_table')) +
+                  u' (`user_id`, `conversation_id`)' +
+                  u' VALUES ( ' + unicode(user_id) +
+                  u', ' + conversation_id + u' )')
+
+        c.execute(u'INSERT INTO ' + unicode(config.get('admin_panel_db', 'messages_table')) +
+                  u' (`conversation_id`, `user_id`, `title`, `body`, `date`)' +
+                  u' VALUES ( ' + conversation_id +
+                  u', ' + unicode(user_id) +
+                  u', "' + title + u'"' +
+                  u', "' + answer_text + u'"' +
+                  u', "' + unicode(date.today()) + u' ")')
+
+
+    conn.commit()
+    conn.close()
+
+    return
 
 
 def change_data(ticket_id, ticket_type, ticket_priority,

@@ -58,5 +58,24 @@ def get_conversation():
 
     return
 
+@app.route('/send_answer', methods=['GET'])
+def send_answer():
+    if request.method == 'GET':
+        callback = request.args.get('callback')
+        conversationId = request.args.get('conversation_id')
+        answerText = request.args.get('answer_text')
+        ticketId = request.args.get('ticket_id')
+        userId = check_admin.get_id(request.cookies)
+
+        if(check_admin.is_admin(userId) == False):
+            abort(401)
+
+        database.send_answer(ticketId, conversationId, userId, answerText)
+
+        return callback + '(' + ')'
+
+    return
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5022)

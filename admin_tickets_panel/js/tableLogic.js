@@ -50,16 +50,32 @@ $(document).ready(function() {
   $('#main_table').on('click', '.conversationButton', function(){
     var conversationButtonId = $(this).attr('id');
     var conversationId = conversationButtonId.slice(18);
-    conversation_modal_init(conversationId);
+    if(conversationId == '0'){
+      ticketHtml = $($(this).parent().parent().find('td')[4]).html();
+      ticketId = $($(this).parent().parent().find('td')[0]).text();
+      $(conversationDialog).html(ticketHtml +
+                              '<textarea class="form-control" rows="7" id="textareaAnswer' + ticketId + '"></textarea>' +
+                              '<button class="btn btn-primary answerButton" id="sendAnswerButton' + conversationId + '">' +
+                              'Ответить</button>');
+    }else{
+      conversation_modal_init(conversationId);
+    }
     $('#popupConversation').modal("show");
   })
+
+  $(document).on('click', '.answerButton', function(){
+    var conversationId = $(this).attr('id').slice(16);
+    var answerText = $($(this).parent().find('textarea')[0]).val();
+    var ticketId = $($(this).parent().find('textarea')[0]).attr('id').slice(14);
+    conversation_send_answer(conversationId, answerText, ticketId);
+  });
 
 });
 
 $('#modal_button').click(function() {
     var xmlRequest = $.ajax({
       method: "GET",
-      url: "http://localhost:5022/send_data",
+      url: "http://abitu.net/tickets_admin/send_data",
       dataType: "jsonp",
       contentType: "jsonp",
       data: {
@@ -80,6 +96,23 @@ function handleGetDataError(xhr, textStatus, error){
   alert("Please, log in as admin on abitu.net");
 }
 
+function conversation_send_answer(conversationId, answerText, ticketId){
+  var answerRequest = $.ajax({
+    method: "GET",
+    url: "http://abitu.net/tickets_admin/send_answer",
+    dataType: "jsonp",
+    contentType: "jsonp",
+    data: {
+      "conversation_id": conversationId,
+      "answer_text": answerText,
+      "ticket_id": ticketId
+    }
+  });
+  answerRequest.done(function(response){
+
+  });
+}
+
 function conversation_modal_init(conversationId){
   var conversationRequest = $.ajax({
     method: "GET",
@@ -91,8 +124,11 @@ function conversation_modal_init(conversationId){
     }
   });
   conversationRequest.done(function(response){
-    $(conversationDialog).html(response.conversation);
-  })
+    $(conversationDialog).html(response.conversation +
+                                '<textarea class="form-control" rows="7" id="textareaAnswer0"></textarea>' +
+                                '<button class="btn btn-primary answerButton" id="sendAnswerButton' + conversationId + '">' +
+                                'Ответить</button>');
+  });
 }
 
 function modal_init(td_list){
@@ -108,47 +144,3 @@ function modal_init(td_list){
   $('#modal_conversation_id').attr("value", $(td_list[9]).text());
   $('#modal_admin_id').attr("value", $(td_list[10]).text());
 }
-/*
-function add_content() {
-    var xmlRequest = $.ajax({
-        method: "GET",
-        url: "http://localhost:5022/get_data",
-        dataType: "jsonp",
-        contentType: "jsonp",
-        data: {}
-    });
-    xmlRequest.done(function(data){
-        for (var i = 0; i < data.length; i++)
-        {
-          console.log(data[i].id_ticket);
-            $('#main_table_body').append(
-              '<tr>' +
-                '<td>'+ data[i].id_ticket + '</td>' +
-                '<td>'+ data[i].time + '</td>' +
-                '<td>id- ' +
-                  data[i].id_user +
-                  '<br>' + data[i].name +
-                  '<br>' + data[i].email +
-                  '<br>' + data[i].phone +
-                '</td>' +
-                '<td>' + data[i].browser + '</td>' +
-                '<td>' +
-                  '<strong align="center">' + data[i].title +
-                  '</strong>' +
-                  '<br>' + data[i].text +
-                '</td>' +
-                '<td>' + data[i].url + '</td>' +
-                '<td>' + data[i].id_type + '</td>' +
-                '<td>'+ data[i].priority + '</td>' +
-                '<td>' + data[i].status + '</td>' +
-                '<td>'+ data[i].conversation_id + '</td>' +
-                '<td>' + data[i].admin_id + '</td>' +
-                '<td>' +
-                  'Редактировать' +
-                '</td>' +
-              '</tr>'
-            );
-        }
-    });
-}
-*/
